@@ -52,7 +52,6 @@ def read_frames(args):
             data = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             data = Image.fromarray(data)
             data = np.array(data.resize((640,640), Image.Resampling.LANCZOS), dtype=np.float32) / 255.0
-            #data = data[:, :, ::-1]
             data = data.transpose((2, 0, 1))
             data = np.expand_dims(data, 0)
             queue.append(data)
@@ -205,7 +204,6 @@ if __name__ == "__main__":
     # Read frames are placed here and then processed
     queue = deque([])
     api = "localhost:8000"
-    headers = {"Content-type": "application/json", "Accept": "text/plain"}
 
     thread1 = Thread(target=read_frames, args=(args,))
     thread2 = Thread(target=batch_and_send_frames, args=(args,))
