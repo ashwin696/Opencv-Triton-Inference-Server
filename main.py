@@ -186,7 +186,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input",
         help="Path to video file or device id",
-        default="/home/ubuntu/intersection1.mp4",
+        default="/home/jordan/Videos/intersection1.mp4",
     )
     parser.add_argument(
         "--client-batching",
